@@ -13,7 +13,7 @@ from jupyter_client.kernelspec import KernelSpecManager
 from tempfile import TemporaryDirectory
 
 kernel_json = {
-   "argv" : [sys.executable,
+   "argv" : ["python",
              "-m", "walnut_kernel",
              "-f", "{connection_file}"],
    "display_name" : "Walnut",
