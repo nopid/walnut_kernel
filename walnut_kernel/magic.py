@@ -4,6 +4,7 @@ from IPython.display import HTML
 from licofage.api import Study
 from ratser.walimp import from_walnut
 from ratser.trick import trick, to_walnut
+from pathlib import Path as P
 
 
 def genparentdir(fname):
