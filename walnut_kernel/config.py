@@ -3,10 +3,13 @@ from pathlib import Path as P
 
 WALNUT_JAR = None
 WALNUT_HOME = None
+WALNUT_MEM = "16g"
 
 
 def setup_path():
-    global WALNUT_HOME, WALNUT_JAR
+    global WALNUT_HOME, WALNUT_JAR, WALNUT_MEM
+    if "WALNUT_MEM" in os.environ:
+        WALNUT_MEM = os.environ["WALNUT_MEM"]
     if "WALNUT_HOME" in os.environ:
         WALNUT_HOME = P(os.environ["WALNUT_HOME"])
     else:

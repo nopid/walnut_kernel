@@ -28,7 +28,7 @@ class WalnutKernel(ProcessMetaKernel):
 
     def makeWrapper(self):
         child = spawn(
-            f"java -Xmx16g -jar {config.WALNUT_JAR}",
+            f"java -Xmx{config.WALNUT_MEM} -jar {config.WALNUT_JAR}",
             cwd=str(config.WALNUT_HOME),
             echo=True,
             encoding="utf-8",
