@@ -20,7 +20,7 @@ class WalnutKernel(ProcessMetaKernel):
         "version": __version__,
     }
 
-    _banner = "Da walnut à-la-main kernel"
+    _banner = "Walnut Jupyter kernel"
 
     def __init__(self, *args, **kwargs):
         ProcessMetaKernel.__init__(self, *args, **kwargs)
@@ -28,7 +28,7 @@ class WalnutKernel(ProcessMetaKernel):
 
     def makeWrapper(self):
         child = spawn(
-            f"java -Xmx{config.WALNUT_MEM} -jar {config.WALNUT_JAR}",
+            f"{config.JAVA} -Xmx{config.WALNUT_MEM} -jar {config.WALNUT_JAR}",
             cwd=str(config.WALNUT_HOME),
             echo=True,
             encoding="utf-8",

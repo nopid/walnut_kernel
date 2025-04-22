@@ -4,10 +4,16 @@ from pathlib import Path as P
 WALNUT_JAR = None
 WALNUT_HOME = None
 WALNUT_MEM = "16g"
-
+JAVA = None
 
 def setup_path():
-    global WALNUT_HOME, WALNUT_JAR, WALNUT_MEM
+    global WALNUT_HOME, WALNUT_JAR, WALNUT_MEM, JAVA
+    if "JAVA" in os.environ:
+        JAVA = P(os.environ["JAVA"])
+    elif "JAVA_HOME" in os.environ:
+        JAVA = P(os.environ["JAVA_HOME"])/"bin"/"java"
+    if JAVA is None or not JAVA.is_file():
+        JAVA = "java"
     if "WALNUT_MEM" in os.environ:
         WALNUT_MEM = os.environ["WALNUT_MEM"]
     if "WALNUT_HOME" in os.environ:
